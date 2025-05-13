@@ -51,10 +51,8 @@
                             <ul class="dropdown-menu w-100">
                                 <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i>Perfil</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                @if (Auth()->user()->rol == 'Admon')
                                     <li><a class="dropdown-item" href="{{ route('usuarios') }}"><i class="fas fa-users"></i>Crear Usuarios</a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                @endif
                                <li class="text-center">
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
