@@ -14,7 +14,7 @@ class Usuarios extends Component
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
     public $name, $email, $password;
-    public $idx, $namex, $emailx, $passwordx;
+    public $idy, $passwordy,  $idx, $namex, $emailx, $passwordx;
     public $search  = "";
 
     protected $listeners = ['render', 'delete'];
@@ -69,7 +69,86 @@ class Usuarios extends Component
         }
     }
 
+    public function cargausuario($obj)
+    {
+        $this->idx =  $obj['id'];
+        $this->namex =  $obj['name'];
+        $this->emailx =  $obj['email'];
+    }
 
+    public function actua()
+    {
+        try { 
+
+            $this->validate([
+                'namex' => 'required|string|max:100',
+                'emailx' => 'required|string|email',
+
+            ],[
+                'namex.required' => 'El campo Nombre Completo es obligatorio',
+                'namex.string' => 'El campo Nombre Completo recibe solo cadena de texto',
+                'namex.max' => 'El campo Nombre Completo debe contener maximo 100 caracteres',
+                'emailx.required' => 'El campo Email es obligatorio',
+                'emailx.string' => 'El campo Email recibe solo cadena de texto',
+                'emailx.email' => 'El campo Email le falta el @',
+            ]);
+
+            $data = User::find($this->idx);
+            $data->name = $this->namex;
+            $data->email = $this->emailx;
+                
+            $data->save();
+            $msj = ['!Actualizado!', 'Se actualizo el Usuario', 'success'];
+            $this->emit('ok', $msj);
+
+          } catch (QueryException $e) {
+
+            $msj = ['!ERROR!', 'se ha presentado un error: ', $e, 'danger'];
+            $this->emit('ok', $msj);
+
+        }
+    }
+
+    public function cargacredenciales($obj)
+    {
+        $this->idy = $obj;
+    }
+
+        public function actuacredenciales()
+    {
+        try {  
+
+            $data = User::find($this->idy);
+            if($this->passwordy != null){
+                $data->password = Hash::make($this->passwordy);
+                $data->save();
+            }
+            $this->reset();
+            $msj = ['!Actualizado!', 'Se actualizaron las credenciales', 'success'];
+            $this->emit('ok', $msj);
+
+          } catch (QueryException $e) {
+
+            $msj = ['!ERROR!', 'se ha presentado un error: ', $e, 'danger'];
+            $this->emit('ok', $msj);
+
+        }
+    }
+
+    
+    public function delete($post)
+    {
+        try {  
+
+            User::where('id',$post)->first()->delete();
+
+          } catch (QueryException $e) {
+
+            $msj = ['!ERROR!', 'se ha presentado un error: ', $e, 'danger'];
+            $this->emit('ok', $msj);
+
+        }
+    }
 
     public function render()
     {

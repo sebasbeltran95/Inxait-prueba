@@ -49,8 +49,8 @@
                                 <i class="fas fa-user"></i> usuarios
                             </a>
                             <ul class="dropdown-menu w-100">
-                                <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i>Perfil</a></li>
-                                <li><hr class="dropdown-divider"></li>
+                                {{--  <li><a class="dropdown-item" href="#"><i class="fas fa-user-cog"></i>Perfil</a></li>
+                                <li><hr class="dropdown-divider"></li>  --}}
                                     <li><a class="dropdown-item" href="{{ route('usuarios') }}"><i class="fas fa-users"></i>Crear Usuarios</a></li>
                                     <li><hr class="dropdown-divider"></li>
                                <li class="text-center">

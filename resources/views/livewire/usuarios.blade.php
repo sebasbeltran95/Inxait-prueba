@@ -95,79 +95,33 @@
                 </div>
             </div>
         </div>
-        {{-- Fin modal crear Servicio --}}
+        {{-- Fin modal crear usuarios --}}
 
         {{--  editar   --}}
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <div class="modal fade" id="Modaleditar" tabindex="-1" wire:ignore.self>
-                        <div class="modal-dialog modal-lg">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title">Editar Usuario</h4>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <div class="container-fluid">
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Nombre Completo</label>
-                                                    <input type="text" class="form-control" wire:model="nombre_completox">
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label class="@error('email') text-danger @enderror">Correo</label>
-                                                    <input type="email" class="form-control" wire:model="emailx">
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label>Rol</label>
-                                                    <select class="form-select" wire:model="rolx">
-                                                        <option value="">Seleccione una opción...</option>
-                                                        <option value="Admon">Administrador</option>
-                                                        <option value="Client">Cliente</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group mb-2">
-                                                    <label>Estado</label>
-                                                    <select class="form-select" wire:model="statusx">
-                                                        <option value="">Seleccione una opción...</option>
-                                                        <option value="2">Activo</option>
-                                                        <option value="1">Inactivo</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label>Tipo de Documento</label>
-                                                    <select class="form-select" wire:model="tipo_documentox">
-                                                        <option value="">Seleccione una opción...</option>
-                                                        <option value="Carnet Diplomatico">Carnet Diplomatico</option>
-                                                        <option value="Cédula de Ciudadania">Cédula de Ciudadania</option>
-                                                        <option value="Cédula de Extranjería">Cédula de Extranjería</option>
-                                                        <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
-                                                        <option value="Pasaporte">Pasaporte</option>
-                                                        <option value="Registro Civil">Registro Civil</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>No Documento</label>
-                                                    <input type="text" class="form-control" wire:model="no_documentox">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Telefono</label>
-                                                    <input type="text" class="form-control" wire:model="telefonox">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Whatsapp</label>
-                                                    <input type="text" class="form-control" wire:model="whatsappx">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Direccion</label>
-                                                    <textarea class="form-control" wire:model="direccionx" rows="4"></textarea>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <label class="@error('namex') text-danger @enderror">Nombre Completo</label>
+                                        <input type="text" class="form-control @error('namex') text-danger @enderror" wire:model="namex">
+                                        <i class="text-danger">
+                                            @error('namex') {{ $message }} @enderror
+                                        </i>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="@error('emailx') text-danger @enderror">Email</label>
+                                        <input type="text" class="form-control @error('emailx') text-danger @enderror" wire:model="emailx">
+                                        <i class="text-danger">
+                                            @error('emailx') {{ $message }} @enderror
+                                        </i>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -202,7 +156,7 @@
                                     </div>
                                 </div>
                                 <div class="modal-footer">
-                                    {{--  <button type="submit" class="btn btn-primary" wire:click="actuacredenciales({{ $usu->id }})">Editar Contraseña</button>  --}}
+                                    <button type="submit" class="btn btn-primary" wire:click="actuacredenciales({{ $usu->id }})">Editar Contraseña</button>
                                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                                 </div>
                             </div>
@@ -212,26 +166,6 @@
             </div>
         </div>
         {{--  contraseña   --}}
-
-        {{--  modal Direccion   --}}
-        <div class="modal fade" id="modal_direccion" tabindex="-1" wire:ignore.self>
-            <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title fs-5">Direccion</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        {{--  <p style="text-align: justify" >{{$descripcion_direccion}}</p>  --}}
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        {{--  modal Direccion   --}}
-
     </div>
 </div>
 @push('js')
