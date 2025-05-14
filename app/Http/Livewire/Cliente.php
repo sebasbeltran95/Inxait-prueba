@@ -10,6 +10,20 @@ class Cliente extends Component
 {
     public $nombre, $apellido, $cedula, $departamento, $ciudad, $celular, $email, $habeas_data; 
 
+        public $departamentos = [
+        'Antioquia' => ['Medellín', 'Bello', 'Itagüí'],
+        'Cundinamarca' => ['Bogotá', 'Soacha', 'Chía'],
+        'Valle del Cauca' => ['Cali', 'Palmira', 'Buenaventura'],
+    ];
+
+    public $ciudadesDisponibles = [];
+
+    public function updatedDepartamento($value)
+    {
+        $this->ciudad = null;
+        $this->ciudadesDisponibles = $this->departamentos[$value] ?? [];
+    }
+
     public function crear()
     {
         try { 

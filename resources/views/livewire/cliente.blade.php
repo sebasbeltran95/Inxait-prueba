@@ -37,17 +37,23 @@
                         </div>
                         <div class="mb-3">
                             <label class="@error('departamento') text-danger @enderror">Departamento</label>
-                            <input type="text" class="form-control @error('departamento') text-danger @enderror" wire:model="departamento">
-                            <i class="text-danger">
-                                @error('departamento') {{ $message }} @enderror
-                            </i>
+                            <select class="form-select @error('departamento') is-invalid @enderror" wire:model="departamento">
+                                <option value="">Seleccione un departamento</option>
+                                @foreach(array_keys($departamentos) as $dep)
+                                    <option value="{{ $dep }}">{{ $dep }}</option>
+                                @endforeach
+                            </select>
+                            <i class="text-danger">@error('departamento') {{ $message }} @enderror</i>
                         </div>
                         <div class="mb-3">
                             <label class="@error('ciudad') text-danger @enderror">Ciudad</label>
-                            <input type="text" class="form-control @error('ciudad') text-danger @enderror" wire:model="ciudad">
-                            <i class="text-danger">
-                                @error('ciudad') {{ $message }} @enderror
-                            </i>
+                            <select class="form-select @error('ciudad') is-invalid @enderror" wire:model="ciudad" @if(empty($ciudadesDisponibles)) disabled @endif>
+                                <option value="">Seleccione una ciudad</option>
+                                @foreach($ciudadesDisponibles as $ciu)
+                                    <option value="{{ $ciu }}">{{ $ciu }}</option>
+                                @endforeach
+                            </select>
+                            <i class="text-danger">@error('ciudad') {{ $message }} @enderror</i>
                         </div>
                         <div class="mb-3">
                             <label class="@error('celular') text-danger @enderror">Celular</label>
