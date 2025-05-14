@@ -1,10 +1,10 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="public/img/logo.png" width="400" alt="InnClod"></a></p>
 
-## TejeTic
+## InXAIT
 
-Se realiza catalogo de productos  en el  framework laravel 10, livewire 2, bootstrap y MySQL las instrucciones de despliegue son las siguientes:
+Se realiza prueba tecnica de la empresa Inxait en el  framework laravel 10, livewire 2, bootstrap y MySQL las instrucciones de despliegue son las siguientes:
 
-- Clonar el repositorio (https://github.com/sebasbeltran95/importadora-yanpo.git).
+- Clonar el repositorio (https://github.com/sebasbeltran95/Inxait-prueba.git).
 - Descomprimir los archivos vendor.rar y .rar.
 - Realizar un composer update.
 - Ejecutar la migracion (php artisan migrate).
@@ -13,13 +13,7 @@ Se realiza catalogo de productos  en el  framework laravel 10, livewire 2, boots
 
 ## Vistas
 
-Para poder ingresar a la vista productos lo hacemos a traves de la siguiente URL /productos, en esta vista podemos encontrar un CRUD echo a traves de modales, en la tabla se evidenciara la siguiente informacion, prodcuto, imagen, codigo, descripcion, categoria, precio con iva, precio sin iva y la fecha en la que se creo. 
-
-Para poder ingresar a la vista categoria lo hacemos a traves de la siguiente URL /categoria,en esta vista podemos encontrar un CRUD echo a traves de modales, en la tabla se evidenciara la siguiente informacion, nombre_categoria y la fecha en la que se creo.
-
-Para poder ingresar a la vista dashbaord lo hacemos a traves de la siguiente URL /dashbaord,en esta vista podemos encontrar unas graficas.
-
-Para poder ingresar a la vista perfil lo hacemos a traves de la siguiente URL /perfil,en esta vista podemos encontrar una plantilla que se asemeja al perfil que puede llevar un aplciativo, se puede editar la informacion, cambiar la contraseña y eliminar el perfil.
+Para poder ingresar a la vista clientes lo hacemos a traves de la siguiente URL /clientes, en esta vista podemos encontrar un CRUD echo a traves de modales, en la tabla se evidenciara la siguiente informacion, nombre, apellido, cedula, departamento, ciudad, celular, email, habeas_data y la fecha en la que se creo, tambien se puede descargar un excel de la informacion que se esta visualizando. 
 
 Para poder ingresar a la vista usuarios lo hacemos a traves de la siguiente URL /usuarios, en la tabla se evidenciara la siguiente informacion, name_ email, rol, password y la fecha en la que se creo.
 
