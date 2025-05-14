@@ -10,10 +10,40 @@ class Cliente extends Component
 {
     public $nombre, $apellido, $cedula, $departamento, $ciudad, $celular, $email, $habeas_data; 
 
-        public $departamentos = [
-        'Antioquia' => ['Medellín', 'Bello', 'Itagüí'],
-        'Cundinamarca' => ['Bogotá', 'Soacha', 'Chía'],
-        'Valle del Cauca' => ['Cali', 'Palmira', 'Buenaventura'],
+    public $departamentos = [
+        'Amazonas'          => ['Leticia', 'Puerto Nariño', 'La Chorrera', 'La Victoria'],            
+        'Antioquia'         => ['Medellín', 'Bello', 'Itagüí', 'Envigado'],                        
+        'Arauca'            => ['Arauca', 'Saravena', 'Tame', 'Arauquita'],                      
+        'Atlántico'         => ['Barranquilla', 'Soledad', 'Malambo', 'Galapa'],                   
+        'Bogotá, D.C.'      => ['Bogotá'],                                                        
+        'Bolívar'           => ['Cartagena', 'Magangué', 'Achí'],                                 
+        'Boyacá'            => ['Tunja', 'Duitama', 'Sogamoso'],                                 
+        'Caldas'            => ['Manizales', 'Villamaría', 'Chinchiná'],                          
+        'Caquetá'           => ['Florencia', 'Puerto Rico', 'Morelia'],                           
+        'Casanare'          => ['Yopal', 'Aguazul', 'Tauramena'],                               
+        'Cauca'             => ['Popayán', 'Santander de Quilichao', 'Puerto Tejada'],            
+        'Cesar'             => ['Valledupar', 'Aguachica', 'Bosconia'],                           
+        'Chocó'             => ['Quibdó', 'Istmina', 'Nuquí'],                                   
+        'Córdoba'           => ['Montería', 'Cereté', 'Lorica'],                                  
+        'Cundinamarca'      => ['Bogotá', 'Soacha', 'Chía'],                                      
+        'Guainía'           => ['Inírida'],                                                      
+        'Guaviare'          => ['San José del Guaviare'],                                          
+        'Huila'             => ['Neiva', 'Pitalito', 'Garzón'],                                   
+        'La Guajira'        => ['Riohacha', 'Maicao', 'Uribia'],                                 
+        'Magdalena'         => ['Santa Marta', 'Ciénaga', 'Fundación'],                           
+        'Meta'              => ['Villavicencio', 'Acacías', 'Granada'],                           
+        'Nariño'            => ['Pasto', 'Ipiales', 'Tumaco'],                                    
+        'Norte de Santander'=> ['Cúcuta', 'Ocaña', 'Villa del Rosario'],                        
+        'Putumayo'          => ['Mocoa', 'Puerto Asís', 'Colón'],                                 
+        'Quindío'           => ['Armenia', 'Calarcá', 'Pereira'],  
+        'Risaralda'         => ['Pereira', 'Dosquebradas', 'Santa Rosa de Cabal'],               
+        'San Andrés y Providencia'=> ['San Andrés', 'Providencia'],                             
+        'Santander'         => ['Bucaramanga', 'Floridablanca', 'Girón'],                        
+        'Sucre'             => ['Sincelejo', 'Tolú', 'Corozal'],                                 
+        'Tolima'            => ['Ibagué', 'Espinal', 'Lérida'],                                  
+        'Valle del Cauca'   => ['Cali', 'Palmira', 'Buenaventura'],                              
+        'Vaupés'            => ['Mitú'],                                                          
+        'Vichada'           => ['Puerto Carreño', 'Cumaribo'],                                   
     ];
 
     public $ciudadesDisponibles = [];
