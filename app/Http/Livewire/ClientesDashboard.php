@@ -2,15 +2,19 @@
 
 namespace App\Http\Livewire;
 
+use App\Exports\ClientesExports;
 use App\Models\Clientes;
 use Livewire\Component;
 use Livewire\WithPagination;
+use Livewire\WithFileUploads;
+use Maatwebsite\Excel\Facades\Excel;
 use Illuminate\Database\QueryException;
 
 
 class ClientesDashboard extends Component
 {
     use WithPagination;
+    use WithFileUploads;
     protected $paginationTheme = 'bootstrap';
     public $nombre, $apellido, $cedula, $departamento, $ciudad, $celular, $email; 
     public $idx, $nombrex, $apellidox, $cedulax, $departamentox, $ciudadx, $celularx, $emailx; 
@@ -172,6 +176,10 @@ class ClientesDashboard extends Component
         }
     }
 
+
+    public function export(){
+        return Excel::download(new ClientesExports($this->search), 'clientes.xlsx');
+    }
 
     public function delete($post)
     {

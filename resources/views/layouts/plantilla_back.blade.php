@@ -30,13 +30,13 @@
                     <ul class="nav flex-column mt-5">
                         <li class="nav-item">
                         </li>
-                        <li class="nav-item">
+                        {{--  <li class="nav-item">
                             <a class="nav-link @if (Request::is('dashbaord')) active @endif"
                                 href="#">
                                 <i class="fas fa-tachometer-alt"></i>
                                 Dashboard
                             </a>
-                        </li>
+                        </li>  --}}
                         <li class="nav-item">
                             <a class="nav-link @if (Request::is('clientes')) active @endif"
                                 href="{{ route('clientes') }}">

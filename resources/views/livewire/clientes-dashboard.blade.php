@@ -10,6 +10,13 @@
         </div>
         <div class="row">
             <div class="col-md-12">
+                <button class="btn btn-info d-flex align-items-center" wire:click='export'>
+                    <i class="fas fa-file-export me-2"></i> Exportar
+                </button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered table-sm">
                         <thead>
