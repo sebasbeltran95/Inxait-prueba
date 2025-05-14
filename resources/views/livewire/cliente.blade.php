@@ -63,6 +63,20 @@
                                 @error('email') {{ $message }} @enderror
                             </i>
                         </div>
+                        <div class="form-check mb-3">
+                            <input
+                                class="form-check-input @error('habeas_data') text-danger @enderror"
+                                type="checkbox"
+                                id="habeasData"
+                                wire:model="habeas_data">
+                            <label class="form-check-label @error('habeas_data') text-danger @enderror" for="habeasData">
+                                Acepto el Habeas Data
+                            </label>
+                            <br>
+                            <i class="text-danger">
+                                @error('habeas_data') {{ $message }} @enderror
+                            </i>
+                        </div>
                         <div class="d-grid">
                             <button type="submit" class="btn btn-primary" wire:click='crear'>Solicitar cotización</button>
                         </div>

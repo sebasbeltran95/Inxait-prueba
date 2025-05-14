@@ -8,7 +8,7 @@ use Illuminate\Database\QueryException;
 
 class Cliente extends Component
 {
-    public $nombre, $apellido, $cedula, $departamento, $ciudad, $celular, $email; 
+    public $nombre, $apellido, $cedula, $departamento, $ciudad, $celular, $email, $habeas_data; 
 
     public function crear()
     {
@@ -22,6 +22,7 @@ class Cliente extends Component
                 'ciudad' => 'required|string|max:255',
                 'celular' => 'required|numeric',
                 'email' => 'required|string|email',
+                'habeas_data' => 'required',
             ],[
                 'nombre.required' => 'El campo Nombre es obligatorio',
                 'nombre.string' => 'El campo Nombre recibe solo cadena de texto',
@@ -42,21 +43,23 @@ class Cliente extends Component
                 'email.required' => 'El campo Email es obligatorio',
                 'email.string' => 'El campo Email recibe solo cadena de texto',
                 'email.email' => 'El campo Email le falta el @',
+                'habeas_data.required' => 'El campo Habeas Data es obligatorio',
             ]);
     
             $usuario_existe = Clientes::where('cedula', $this->cedula)->first();     
 
             if($usuario_existe == null){
         
-                $user = new Clientes();
-                $user->nombre =  $this->nombre;
-                $user->apellido =  $this->apellido;
-                $user->cedula =  $this->cedula;
-                $user->departamento =  $this->departamento;
-                $user->ciudad =  $this->ciudad;
-                $user->celular =  $this->celular;
-                $user->email =  $this->email;
-                $user->save();
+                $cliente = new Clientes();
+                $cliente->nombre =  $this->nombre;
+                $cliente->apellido =  $this->apellido;
+                $cliente->cedula =  $this->cedula;
+                $cliente->departamento =  $this->departamento;
+                $cliente->ciudad =  $this->ciudad;
+                $cliente->celular =  $this->celular;
+                $cliente->email =  $this->email;
+                $cliente->habeas_data = $this->habeas_data;
+                $cliente->save();
 
                 $this->reset();
                 $msj = ['!Registrado!', 'Se registro el usuario', 'success'];

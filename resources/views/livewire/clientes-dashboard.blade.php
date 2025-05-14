@@ -20,7 +20,7 @@
                 <div class="table-responsive">
                     <table class="table table-hover table-bordered table-sm">
                         <thead>
-                            <th colspan="10">
+                            <th colspan="11">
                                 <div class="input-group input-group-sm">
                                     <input type="text" class="form-control"
                                     placeholder="Buscar..."
@@ -35,6 +35,7 @@
                                 <th class="text-center">ciudad</th>
                                 <th class="text-center">celular</th>
                                 <th class="text-center">email</th>
+                                <th class="text-center">Habeas Data</th>
                                 <th class="text-center">Fecha Creacion</th>
                                 <th class="text-center">Fecha Actualizacion</th>
                                 <th class="text-center">Acciones</th>
@@ -50,6 +51,11 @@
                                     <td class="text-center">{{ $cat->ciudad }}</td>
                                     <td class="text-center">{{ $cat->celular }}</td>
                                     <td class="text-center">{{ $cat->email }}</td>
+                                    @if ($cat->habeas_data == "1")
+                                        <td class="text-center">Acepto</td>
+                                    @else
+                                        <td class="text-center">No acepto</td>
+                                    @endif
                                     <td class="text-center">{{ $cat->created_at }}</td>
                                     <td class="text-center">{{ $cat->updated_at }}</td>
                                     <td class="d-flex justify-content-center">
@@ -65,7 +71,7 @@
                                 </tr>
                             @empty
                                 <tr>
-                                    <td colspan="10" class="text-center">No hay registros</td>
+                                    <td colspan="11" class="text-center">No hay registros</td>
                                 </tr>
                             @endforelse
                         </tbody>
